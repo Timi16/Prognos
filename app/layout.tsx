@@ -8,9 +8,9 @@ import "./globals.css"
 import { Navigation } from "@/components/navigation"
 
 export const metadata: Metadata = {
-  title: "Wagerme - Predict the Future. Get Paid.",
+  title: "Prognos - Predict the Future. Get Paid.",
   description: "Decentralized prediction markets on Flow. Trade on real-world events and earn rewards.",
-  generator: "Wagerme",
+  generator: "Prognos",
 }
 
 export default function RootLayout({

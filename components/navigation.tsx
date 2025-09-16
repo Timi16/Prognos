@@ -36,7 +36,7 @@ export function Navigation() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <TrendingUp className="w-4 h-4 text-white" />
             </div>
-            <span className="text-xl font-bold text-primary">Wagerme</span>
+            <span className="text-xl font-bold text-primary">Prognos</span>
           </Link>
 
           {/* Desktop Navigation */}
