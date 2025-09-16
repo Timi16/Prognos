@@ -1,7 +1,7 @@
-Wagerme
+Prognos
 
 
-Wagerme is a decentralized prediction marketplace built on the Flow blockchain ecosystem. Users can create, participate in, and resolve prediction markets on real-world events, outcomes, and trends. Bet on sports, politics, crypto prices, or any verifiable event using FLOW tokens or other assets. Wagerme leverages Flow's high-performance, user-centric blockchain to ensure fast, secure, and scalable betting experiences.
+Prognos is a decentralized prediction marketplace built on the Flow blockchain ecosystem. Users can create, participate in, and resolve prediction markets on real-world events, outcomes, and trends. Bet on sports, politics, crypto prices, or any verifiable event using FLOW tokens or other assets. Wagerme leverages Flow's high-performance, user-centric blockchain to ensure fast, secure, and scalable betting experiences.
 🚀 Features
 
 Create Markets: Easily deploy prediction markets with custom questions, resolution criteria, and end dates.
@@ -25,7 +25,7 @@ Built on Flow: All smart contracts are deployed on the Flow blockchain. See the 
 📦 Installation
 
 Clone the Repository:
-git clone https://github.com/Timi16/WagermeFlow.git
+git clone https://github.com/Timi16/Prognos.git
 cd WagermeFlow
 
 
