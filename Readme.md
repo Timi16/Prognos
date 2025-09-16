@@ -1,5 +1,6 @@
 Wagerme
 
+
 Wagerme is a decentralized prediction marketplace built on the Flow blockchain ecosystem. Users can create, participate in, and resolve prediction markets on real-world events, outcomes, and trends. Bet on sports, politics, crypto prices, or any verifiable event using FLOW tokens or other assets. Wagerme leverages Flow's high-performance, user-centric blockchain to ensure fast, secure, and scalable betting experiences.
 🚀 Features
 
@@ -18,7 +19,9 @@ Backend: Node.js with Flow SDK
 Oracles: Integration with Chainlink or custom Flow-based oracles for event resolution
 Deployment: Hosted on Flow's testnet/mainnet with EVM compatibility
 
-This project is built on Flow. All smart contracts are deployed on the Flow blockchain. See the Contracts section for addresses.
+
+Built on Flow: All smart contracts are deployed on the Flow blockchain. See the Contracts section for addresses.
+
 📦 Installation
 
 Clone the Repository:
@@ -63,7 +66,9 @@ Deploy via smart contract.
 Place Bets: Select a market, choose Yes/No, and stake tokens.
 Resolve & Claim: Once resolved, winners claim rewards automatically.
 
+
 For detailed guides, check the docs folder (coming soon).
+
 📄 Contracts
 Wagerme uses the following deployed Cadence contracts on Flow:
 
@@ -76,7 +81,9 @@ Address: Integrated within the main contract.
 
 
 
+
 Note: These are deployed on Flow Mainnet. For testnet deployments, update your FCL config.
+
 EVM Bridge Wallet (for cross-chain assets): 0x000000000000000000000002206f95Af1352D46C
 🤝 Contributing
 Contributions are welcome! Please follow these steps:
