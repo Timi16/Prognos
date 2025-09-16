@@ -1,10 +1,9 @@
-Wagerme
+Prognos
 
-
-Wagerme is a decentralized prediction marketplace built on the Flow blockchain ecosystem. Users can create, participate in, and resolve prediction markets on real-world events, outcomes, and trends. Bet on sports, politics, crypto prices, or any verifiable event using FLOW tokens or other assets. Wagerme leverages Flow's high-performance, user-centric blockchain to ensure fast, secure, and scalable betting experiences.
+Prognos is a decentralized prediction marketplace built on the Flow blockchain ecosystem. Users can create, participate in, and resolve prediction markets on real-world events, outcomes, and trends. Bet on sports, politics, crypto prices, or any verifiable event using FLOW tokens or other assets. Prognos leverages Flow's high-performance, user-centric blockchain to ensure fast, secure, and scalable betting experiences.
 🚀 Features
 
-Create Markets: Easily deploy prediction markets with custom questions, resolution criteria, and end dates.
+Create Markets: Deploy prediction markets with custom questions, resolution criteria, and end dates.
 Bet & Trade: Place yes/no bets or trade shares in open markets with real-time pricing.
 Automated Resolution: Use oracles or community voting to settle markets transparently.
 Multi-Asset Support: Bet with FLOW, fungible tokens, or NFTs.
@@ -25,8 +24,8 @@ Built on Flow: All smart contracts are deployed on the Flow blockchain. See the 
 📦 Installation
 
 Clone the Repository:
-git clone https://github.com/Timi16/WagermeFlow.git
-cd WagermeFlow
+git clone https://github.com/Timi16/Prognos.git
+cd Prognos
 
 
 Install Dependencies:
@@ -54,7 +53,7 @@ The app will open at http://localhost:3000.
 
 🔧 Usage
 
-Connect Wallet: Use the Blocto or Lilico wallet via FCL to connect your Flow account.
+Connect Wallet: Use Blocto or Lilico wallet via FCL to connect your Flow account.
 Browse Markets: Explore active prediction markets on the dashboard.
 Create a Market:
 Navigate to "Create Market".
@@ -70,7 +69,7 @@ Resolve & Claim: Once resolved, winners claim rewards automatically.
 For detailed guides, check the docs folder (coming soon).
 
 📄 Contracts
-Wagerme uses the following deployed Cadence contracts on Flow:
+Prognos uses the following deployed Cadence contracts on Flow:
 
 PredictionMarket Contract: Handles market creation, betting, and resolution.
 Address: 0x0fa0eeb9864e32cc
@@ -86,19 +85,25 @@ Note: These are deployed on Flow Mainnet. For testnet deployments, update your F
 
 EVM Bridge Wallet (for cross-chain assets): 0x000000000000000000000002206f95Af1352D46C
 🤝 Contributing
-Contributions are welcome! Please follow these steps:
+We welcome contributions! Follow these steps to contribute:
 
 Fork the repository.
-Create a feature branch (git checkout -b feature/AmazingFeature).
-Commit your changes (git commit -m 'Add some AmazingFeature').
-Push to the branch (git push origin feature/AmazingFeature).
+Create a feature branch:git checkout -b feature/AmazingFeature
+
+
+Commit your changes:git commit -m 'Add some AmazingFeature'
+
+
+Push to the branch:git push origin feature/AmazingFeature
+
+
 Open a Pull Request.
 
 See CONTRIBUTING.md for more details.
 📱 Follow Us
 
 GitHub: Timi16
-X (Twitter): @Timicoding
+X: @Timicoding
 
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
