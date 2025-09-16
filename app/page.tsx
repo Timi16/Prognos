@@ -99,7 +99,7 @@ export default function HomePage() {
               <div className="animate-in fade-in-0 slide-in-from-bottom-4 duration-1000">
                 <Badge className="mb-8 bg-surface/80 text-primary border-primary/30 backdrop-blur-sm hover:scale-110 transition-transform duration-300 cursor-pointer">
                   <Sparkles className="w-3 h-3 mr-1" />
-                  Built on Avalanche • Lightning Fast
+                  Built on Flow • Lightning Fast
                 </Badge>
               </div>
 
@@ -118,7 +118,7 @@ export default function HomePage() {
               <div className="animate-in fade-in-0 slide-in-from-bottom-8 duration-1000 delay-400">
                 <p className="text-xl md:text-2xl text-foreground mb-12 max-w-3xl mx-auto text-pretty leading-relaxed">
                   Trade on real-world events in the world's most advanced decentralized prediction market.
-                  <span className="text-primary font-bold"> Powered by Avalanche</span> for lightning-fast, low-cost
+                  <span className="text-primary font-bold"> Powered by Flow</span> for lightning-fast, low-cost
                   transactions.
                 </p>
               </div>
@@ -305,7 +305,7 @@ export default function HomePage() {
                 step: "01",
                 title: "Connect Wallet",
                 description:
-                  "Link your Avalanche wallet to start trading on prediction markets with lightning-fast transactions",
+                  "Link your Flow wallet to start trading on prediction markets with lightning-fast transactions",
                 icon: Shield,
                 color: "from-primary to-primary/60",
               },
