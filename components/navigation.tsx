@@ -1,4 +1,5 @@
 "use client"
+import "@/lib/flow-config" // <-- Import config at the top!
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
