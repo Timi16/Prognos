@@ -1,33 +1,34 @@
-// components/FlowWrapper.tsx
 "use client"
 
-import React from "react"
+import React, { useEffect } from "react"
 import { FlowProvider } from "@onflow/react-sdk"
+import * as fcl from "@onflow/fcl"
 
 interface FlowWrapperProps {
   children: React.ReactNode
 }
 
 export function FlowWrapper({ children }: FlowWrapperProps) {
+  useEffect(() => {
+    // Configure FCL directly for wallet discovery
+    fcl.config({
+      "accessNode.api": "https://rest-testnet.onflow.org",
+      "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
+      "app.detail.title": "Prognos",
+      "app.detail.icon": "/favicon.ico",
+      "app.detail.description": "Agentic Prediction market platform on Flow",
+    })
+  }, [])
+
   return (
     <FlowProvider
       config={{
-        // For Mainnet
-        // accessNodeUrl: "https://access-mainnet.onflow.org",
-        // flowNetwork: "mainnet",
-        
-        // For Testnet (uncomment to use testnet instead)
-        accessNodeUrl: "https://access-testnet.onflow.org",
+        accessNodeUrl: "https://rest-testnet.onflow.org",
         flowNetwork: "testnet",
-        
-        // For local development (uncomment to use emulator)
-        // accessNodeUrl: "http://localhost:8888",
-        // flowNetwork: "emulator",
-        
         appDetailTitle: "Prognos",
-        appDetailIcon: "<YOUR_APP_ICON>", // Replace with your app icon
+        appDetailIcon: "/favicon.ico",
         appDetailDescription: "Agentic Prediction market platform on Flow",
-        appDetailUrl: "https://yourapp.com", // Replace with your app URL
+        appDetailUrl: "http://localhost:3000",
       }}
     >
       {children}
