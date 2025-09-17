@@ -83,18 +83,18 @@ export function Navigation() {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <Button
+            {/* <Button
               variant="ghost"
               size="sm"
               onClick={toggleTheme}
               className="hover:bg-surface hover:scale-110 transition-all duration-300 text-foreground"
             >
               {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </Button>
+            </Button> */}
 
             <Button size="sm" className="hidden md:flex bg-primary hover:bg-primary/90 text-background font-medium">
               <Wallet className="w-4 h-4 mr-2" />
-              Connect
+              Connect Wallet
             </Button>
 
             {/* Mobile Menu Button */}
