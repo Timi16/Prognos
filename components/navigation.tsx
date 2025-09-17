@@ -3,7 +3,7 @@ import "@/lib/flow-config" // <-- Import config at the top!
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Moon, Sun, Menu, X, Wallet, TrendingUp, Brain, Lightbulb } from "lucide-react"
+import {  Menu, X, TrendingUp, Brain, Lightbulb } from "lucide-react"
 import { Connect, useFlowCurrentUser } from "@onflow/react-sdk"
 import Link from "next/link"
 
