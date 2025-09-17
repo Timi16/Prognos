@@ -9,7 +9,7 @@ import { Navigation } from "@/components/navigation"
 import { FlowWrapper } from "@/components/FlowWrapper"
 
 export const metadata: Metadata = {
-  title: "Prognos - Predict the Future. Get Paid.",
+  title: "Prognos -Predict the Future. Get Paid.",
   description: "Decentralized prediction markets on Flow. Trade on real-world events and earn rewards.",
   generator: "Prognos",
 }
