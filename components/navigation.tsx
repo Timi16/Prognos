@@ -1,19 +1,14 @@
 "use client"
-import "@/lib/flow-config" // <-- Import config at the top!
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import {  Menu, X, TrendingUp, Brain, Lightbulb } from "lucide-react"
-import { Connect, useFlowCurrentUser } from "@onflow/react-sdk"
+import { Moon, Sun, Menu, X, Wallet, TrendingUp, Brain, Lightbulb } from "lucide-react"
 import Link from "next/link"
 
 export function Navigation() {
   const [isDark, setIsDark] = useState(true)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  
-  // Flow wallet connection
-  const { user } = useFlowCurrentUser()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,14 +21,6 @@ export function Navigation() {
   const toggleTheme = () => {
     setIsDark(!isDark)
     document.documentElement.classList.toggle("dark")
-  }
-
-  const handleConnect = () => {
-    console.log("Wallet connected!")
-  }
-
-  const handleDisconnect = () => {
-    console.log("Wallet disconnected!")
   }
 
   return (
@@ -96,14 +83,19 @@ export function Navigation() {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            {/* Flow Wallet Connect Component */}
-            <div className="hidden md:block">
-              <Connect
-                onConnect={handleConnect}
-                onDisconnect={handleDisconnect}
-                balanceType="combined"
-              />
-            </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              className="hover:bg-surface hover:scale-110 transition-all duration-300 text-foreground"
+            >
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </Button>
+
+            <Button size="sm" className="hidden md:flex bg-primary hover:bg-primary/90 text-background font-medium">
+              <Wallet className="w-4 h-4 mr-2" />
+              Connect
+            </Button>
 
             {/* Mobile Menu Button */}
             <Button
@@ -147,15 +139,10 @@ export function Navigation() {
               <Link href="/leaderboard" className="block text-muted-foreground hover:text-foreground transition-colors">
                 Leaderboard
               </Link>
-              
-              {/* Mobile Flow Wallet Connect */}
-              <div className="pt-2">
-                <Connect
-                  onConnect={handleConnect}
-                  onDisconnect={handleDisconnect}
-                  balanceType="combined"
-                />
-              </div>
+              <Button className="w-full bg-primary hover:bg-primary/90 text-background">
+                <Wallet className="w-4 h-4 mr-2" />
+                Connect Wallet
+              </Button>
             </div>
           </div>
         )}
