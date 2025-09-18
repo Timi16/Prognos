@@ -362,7 +362,7 @@ export default function HomePage() {
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                   <TrendingUp className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-xl md:text-2xl font-bold text-primary">WagerMe</span>
+                <span className="text-xl md:text-2xl font-bold text-primary">Prognos</span>
               </div>
               <p className="text-muted-foreground mb-6 max-w-md text-sm md:text-base">
                 Professional prediction markets platform delivering institutional-grade trading infrastructure for
@@ -421,7 +421,7 @@ export default function HomePage() {
 
           <div className="flex flex-col md:flex-row justify-between items-center pt-6 md:pt-8 border-t border-border/30 gap-4 md:gap-0">
             <p className="text-muted-foreground text-xs md:text-sm text-center md:text-left">
-              © 2024 WagerMe. All rights reserved.
+              © 2024 Prognos. All rights reserved.
             </p>
             <div className="flex space-x-4 md:space-x-6 text-xs md:text-sm text-muted-foreground">
               <a href="#" className="hover:text-foreground transition-colors">
