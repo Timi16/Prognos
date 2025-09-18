@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Moon, Sun, Menu, X, Wallet, TrendingUp, Brain, Lightbulb } from "lucide-react"
+import { Moon, Sun, Menu, X, Wallet, TrendingUp } from "lucide-react"
 import Link from "next/link"
 
 export function Navigation() {
@@ -25,8 +25,10 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border" : "bg-transparent"
+      className={`fixed top-0 w-full z-[100] transition-all duration-300 ${
+        scrolled
+          ? "bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg"
+          : "bg-background/80 backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -43,39 +45,25 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/markets"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-105 transform"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-105 transform font-medium"
             >
               Markets
             </Link>
             <Link
               href="/portfolio"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-105 transform"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-105 transform font-medium"
             >
               Portfolio
             </Link>
             <Link
-              href="/agent"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-105 transform flex items-center gap-1"
-            >
-              <Brain className="w-4 h-4" />
-              Agents
-            </Link>
-            <Link
-              href="/ideas"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-105 transform flex items-center gap-1"
-            >
-              <Lightbulb className="w-4 h-4" />
-              Ideas
-            </Link>
-            <Link
               href="/create"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-105 transform"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-105 transform font-medium"
             >
               Create
             </Link>
             <Link
               href="/leaderboard"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-105 transform"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-105 transform font-medium"
             >
               Leaderboard
             </Link>
@@ -94,7 +82,7 @@ export function Navigation() {
 
             <Button size="sm" className="hidden md:flex bg-primary hover:bg-primary/90 text-background font-medium">
               <Wallet className="w-4 h-4 mr-2" />
-              Connect
+              Connect Wallet
             </Button>
 
             {/* Mobile Menu Button */}
@@ -109,40 +97,43 @@ export function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b border-border animate-in slide-in-from-top-2 duration-300">
+          <div className="md:hidden absolute top-full left-0 w-full bg-background/98 backdrop-blur-xl border-b border-border/50 shadow-xl animate-in slide-in-from-top-2 duration-300">
             <div className="px-4 py-6 space-y-4">
-              <Link href="/markets" className="block text-muted-foreground hover:text-foreground transition-colors">
+              <Link
+                href="/markets"
+                className="block text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Markets
               </Link>
-              <Link href="/portfolio" className="block text-muted-foreground hover:text-foreground transition-colors">
+              <Link
+                href="/portfolio"
+                className="block text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Portfolio
               </Link>
               <Link
-                href="/agent"
-                className="block text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
+                href="/create"
+                className="block text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
               >
-                <Brain className="w-4 h-4" />
-                AI Agents
-              </Link>
-              <Link
-                href="/ideas"
-                className="block text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-              >
-                <Lightbulb className="w-4 h-4" />
-                Market Ideas
-              </Link>
-              <Link href="/create" className="block text-muted-foreground hover:text-foreground transition-colors">
                 Create Market
               </Link>
-              <Link href="/leaderboard" className="block text-muted-foreground hover:text-foreground transition-colors">
+              <Link
+                href="/leaderboard"
+                className="block text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Leaderboard
               </Link>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-background">
-                <Wallet className="w-4 h-4 mr-2" />
-                Connect Wallet
-              </Button>
+              <div className="pt-4 border-t border-border/30">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-background">
+                  <Wallet className="w-4 h-4 mr-2" />
+                  Connect Wallet
+                </Button>
+              </div>
             </div>
           </div>
         )}
