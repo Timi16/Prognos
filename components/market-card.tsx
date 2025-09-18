@@ -69,21 +69,21 @@ export function MarketCard({
 
   return (
     <Card
-      className={`glass-card transition-all duration-300 p-6 cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 ${
+      className={`glass-card transition-all duration-300 p-3 sm:p-4 md:p-6 cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 ${
         isHovered ? "shadow-2xl shadow-primary/20 border-primary/20" : ""
       } ${isLive ? "animate-pulse-glow" : ""}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex justify-between items-start mb-4">
-        <div className="flex gap-2">
-          <Badge className={`text-xs px-3 py-1 rounded-full ${getCategoryColor(category)} font-medium`}>
+      <div className="flex justify-between items-start mb-3 sm:mb-4">
+        <div className="flex gap-1.5 sm:gap-2">
+          <Badge className={`text-xs px-2 sm:px-3 py-1 rounded-full ${getCategoryColor(category)} font-medium`}>
             {category}
           </Badge>
           {isLive && (
-            <Badge className="text-xs px-3 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 animate-pulse">
-              <Zap className="w-3 h-3 mr-1" />
-              LIVE
+            <Badge className="text-xs px-2 sm:px-3 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 animate-pulse">
+              <Zap className="w-2.5 sm:w-3 h-2.5 sm:h-3 mr-1" />
+              <span className="hidden xs:inline">LIVE</span>
             </Badge>
           )}
         </div>
@@ -92,18 +92,18 @@ export function MarketCard({
         </Badge>
       </div>
 
-      <h3 className="font-bold text-lg mb-4 text-balance line-clamp-2 leading-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+      <h3 className="font-bold text-sm sm:text-base md:text-lg mb-3 sm:mb-4 text-balance line-clamp-2 leading-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
         {title}
       </h3>
 
       {/* Probability Bar */}
       {marketType === "Yes/No" && (
-        <div className="mb-4">
-          <div className="flex justify-between text-sm mb-2">
+        <div className="mb-3 sm:mb-4">
+          <div className="flex justify-between text-xs sm:text-sm mb-2">
             <span className="text-text-muted">Implied Probability</span>
             <span className="font-medium text-secondary">{impliedProbability}%</span>
           </div>
-          <Progress value={impliedProbability} className="h-2 bg-surface/50">
+          <Progress value={impliedProbability} className="h-1.5 sm:h-2 bg-surface/50">
             <div
               className="h-full bg-gradient-to-r from-secondary to-accent rounded-full transition-all duration-500"
               style={{ width: `${impliedProbability}%` }}
@@ -113,26 +113,26 @@ export function MarketCard({
       )}
 
       {/* Stats */}
-      <div className="space-y-3 mb-4">
-        <div className="flex justify-between text-sm">
+      <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4">
+        <div className="flex justify-between text-xs sm:text-sm">
           <span className="text-text-muted">Pool Size</span>
           <span className="font-medium text-success">{poolSize}</span>
         </div>
 
-        <div className="flex justify-between text-sm">
+        <div className="flex justify-between text-xs sm:text-sm">
           <span className="text-text-muted">Time Left</span>
           <span className="font-medium flex items-center gap-1">
-            <Clock className="h-3 w-3" />
+            <Clock className="h-2.5 sm:h-3 w-2.5 sm:w-3" />
             <span className={timeLeft.includes("5m") || timeLeft.includes("1m") ? "flicker" : ""}>{timeLeft}</span>
           </span>
         </div>
 
         {/* Top Predictors */}
-        <div className="flex justify-between items-center text-sm">
+        <div className="flex justify-between items-center text-xs sm:text-sm">
           <span className="text-text-muted">Top Predictors</span>
-          <div className="flex -space-x-2">
+          <div className="flex -space-x-1.5 sm:-space-x-2">
             {topPredictors.slice(0, 3).map((predictor, i) => (
-              <Avatar key={predictor.id} className="w-6 h-6 border-2 border-card">
+              <Avatar key={predictor.id} className="w-5 sm:w-6 h-5 sm:h-6 border-2 border-card">
                 <AvatarImage src={predictor.avatar || "/placeholder.svg"} />
                 <AvatarFallback className="text-xs bg-primary/20 text-primary">
                   {predictor.name.charAt(0)}
@@ -140,7 +140,7 @@ export function MarketCard({
               </Avatar>
             ))}
             {topPredictors.length > 3 && (
-              <div className="w-6 h-6 rounded-full bg-muted/20 border-2 border-card flex items-center justify-center text-xs text-muted-foreground">
+              <div className="w-5 sm:w-6 h-5 sm:h-6 rounded-full bg-muted/20 border-2 border-card flex items-center justify-center text-xs text-muted-foreground">
                 +{topPredictors.length - 3}
               </div>
             )}
@@ -149,13 +149,13 @@ export function MarketCard({
 
         {/* Sparkline */}
         {sparklineData.length > 0 && (
-          <div className="flex justify-between items-center text-sm">
+          <div className="flex justify-between items-center text-xs sm:text-sm">
             <span className="text-text-muted">Activity</span>
-            <div className="flex items-end gap-0.5 h-4">
+            <div className="flex items-end gap-0.5 h-3 sm:h-4">
               {sparklineData.slice(-12).map((value, i) => (
                 <div
                   key={i}
-                  className="w-1 bg-gradient-to-t from-secondary/50 to-secondary rounded-sm"
+                  className="w-0.5 sm:w-1 bg-gradient-to-t from-secondary/50 to-secondary rounded-sm"
                   style={{ height: `${(value / Math.max(...sparklineData)) * 100}%` }}
                 />
               ))}
@@ -164,22 +164,23 @@ export function MarketCard({
         )}
       </div>
 
-      <div className="flex gap-3">
+      {/* Buttons */}
+      <div className="flex gap-2 sm:gap-3">
         <Button
           onClick={onPredict}
-          className="flex-1 bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground font-semibold rounded-full transition-all duration-300"
+          className="flex-1 bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground font-semibold rounded-full transition-all duration-300 text-xs sm:text-sm py-2 sm:py-2.5"
           size="sm"
         >
-          <TrendingUp className="w-4 h-4 mr-2" />
+          <TrendingUp className="w-3 sm:w-4 h-3 sm:h-4 mr-1.5 sm:mr-2" />
           Predict
         </Button>
         <Button
           onClick={onView}
           variant="outline"
-          className="bg-white/5 border-white/20 hover:bg-white/10 text-foreground rounded-full transition-all duration-300"
+          className="bg-white/5 border-white/20 hover:bg-white/10 text-foreground rounded-full transition-all duration-300 px-2.5 sm:px-3"
           size="sm"
         >
-          <Eye className="w-4 h-4" />
+          <Eye className="w-3 sm:w-4 h-3 sm:h-4" />
         </Button>
       </div>
     </Card>
