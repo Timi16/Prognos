@@ -107,85 +107,96 @@ export default function LeaderboardPage() {
       <div className="aurora-bg"></div>
 
       <div className="container mx-auto px-4 py-8 relative z-10">
-        <div className="text-center mb-12">
-          <div className="mb-8">
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30 mb-6 animate-pulse-glow">
-              <Trophy className="w-5 h-5 text-primary" />
-              <span className="text-lg font-semibold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+        <div className="text-center mb-8 md:mb-12">
+          <div className="mb-6 md:mb-8">
+            <div className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30 mb-4 md:mb-6 animate-pulse-glow">
+              <Trophy className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+              <span className="text-sm md:text-lg font-semibold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                 Top Performers
               </span>
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 text-center leading-tight">
             <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-gradient-shift">
               Leaderboard
             </span>
           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 text-balance">
+          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 md:mb-8 text-balance px-4">
             See who's dominating the prediction markets and climbing the ranks
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
-            <TabsList className="grid w-full grid-cols-3 bg-white/5 backdrop-blur-xl border border-white/10">
-              <TabsTrigger value="all-time" className="data-[state=active]:bg-primary/20">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-6 md:mb-8">
+            <TabsList className="grid w-full grid-cols-3 bg-white/5 backdrop-blur-xl border border-white/10 h-12 md:h-14">
+              <TabsTrigger
+                value="all-time"
+                className="data-[state=active]:bg-white data-[state=active]:text-black data-[state=inactive]:text-white/70 data-[state=inactive]:hover:text-white text-xs md:text-sm font-medium transition-all duration-300"
+              >
                 All Time
               </TabsTrigger>
-              <TabsTrigger value="monthly" className="data-[state=active]:bg-primary/20">
+              <TabsTrigger
+                value="monthly"
+                className="data-[state=active]:bg-white data-[state=active]:text-black data-[state=inactive]:text-white/70 data-[state=inactive]:hover:text-white text-xs md:text-sm font-medium transition-all duration-300"
+              >
                 This Month
               </TabsTrigger>
-              <TabsTrigger value="weekly" className="data-[state=active]:bg-primary/20">
+              <TabsTrigger
+                value="weekly"
+                className="data-[state=active]:bg-white data-[state=active]:text-black data-[state=inactive]:text-white/70 data-[state=inactive]:hover:text-white text-xs md:text-sm font-medium transition-all duration-300"
+              >
                 This Week
               </TabsTrigger>
             </TabsList>
 
-            <TabsContent value={activeTab} className="space-y-4">
+            <TabsContent value={activeTab} className="space-y-3 md:space-y-4">
               {mockLeaderboard.map((user, i) => (
                 <Card
                   key={user.id}
-                  className={`glass-card p-6 bg-white/5 backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 animate-fade-in-up ${user.rank <= 3 ? "shadow-lg shadow-primary/20" : ""}`}
+                  className={`glass-card p-4 md:p-6 bg-white/5 backdrop-blur-xl border border-white/10 hover:scale-[1.02] md:hover:scale-105 transition-all duration-300 animate-fade-in-up ${user.rank <= 3 ? "shadow-lg shadow-primary/20" : ""}`}
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <div className="flex items-center gap-2 md:gap-3">
                         {getRankIcon(user.rank)}
-                        <Avatar className="w-12 h-12 border-2 border-primary/20">
+                        <Avatar className="w-10 h-10 md:w-12 md:h-12 border-2 border-primary/20">
                           <AvatarImage src={user.avatar || "/placeholder.svg"} />
-                          <AvatarFallback className="bg-primary/20 text-primary font-bold">
+                          <AvatarFallback className="bg-primary/20 text-primary font-bold text-sm">
                             {user.name.slice(0, 2).toUpperCase()}
                           </AvatarFallback>
                         </Avatar>
                       </div>
 
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-bold text-lg bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                          <h3 className="font-bold text-base md:text-lg bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent truncate">
                             {user.name}
                           </h3>
-                          <Badge className={`text-xs px-2 py-1 rounded-full ${getBadgeColor(user.badge)}`}>
+                          <Badge
+                            className={`text-xs px-2 py-1 rounded-full flex-shrink-0 ${getBadgeColor(user.badge)}`}
+                          >
                             {user.badge}
                           </Badge>
                         </div>
-                        <p className="text-sm text-muted-foreground">{user.trades} trades</p>
+                        <p className="text-xs md:text-sm text-muted-foreground">{user.trades} trades</p>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-6 text-right">
+                    <div className="grid grid-cols-3 gap-3 md:gap-6 text-center sm:text-right">
                       <div>
-                        <p className="text-sm text-muted-foreground mb-1">P&L</p>
-                        <p className="font-bold text-lg text-green-400">{user.pnl}</p>
+                        <p className="text-xs text-muted-foreground mb-1">P&L</p>
+                        <p className="font-bold text-sm md:text-lg text-green-400">{user.pnl}</p>
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground mb-1">ROI</p>
-                        <p className="font-bold text-lg text-blue-400">{user.roi}</p>
+                        <p className="text-xs text-muted-foreground mb-1">ROI</p>
+                        <p className="font-bold text-sm md:text-lg text-blue-400">{user.roi}</p>
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground mb-1">Win Rate</p>
-                        <p className="font-bold text-lg text-purple-400">{user.winRate}</p>
+                        <p className="text-xs text-muted-foreground mb-1">Win Rate</p>
+                        <p className="font-bold text-sm md:text-lg text-purple-400">{user.winRate}</p>
                       </div>
                     </div>
                   </div>
@@ -195,8 +206,8 @@ export default function LeaderboardPage() {
           </Tabs>
 
           <div className="text-center">
-            <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground px-8 py-3 font-semibold rounded-full transition-all duration-300 hover:scale-105">
-              <Star className="w-5 h-5 mr-2" />
+            <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground px-6 md:px-8 py-2 md:py-3 font-semibold rounded-full transition-all duration-300 hover:scale-105 text-sm md:text-base">
+              <Star className="w-4 h-4 md:w-5 md:h-5 mr-2" />
               Join the Competition
             </Button>
           </div>
