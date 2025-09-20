@@ -1,5 +1,5 @@
 "use client"
-import "@/lib/flow-config" // <-- Import config at the top!
+import "@/lib/flow-config"
 import { FlowProvider } from "@onflow/react-sdk"
 import React from "react"
 
